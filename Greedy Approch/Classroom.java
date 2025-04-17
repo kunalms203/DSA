@@ -14,6 +14,22 @@ public class Classroom {
         return count;
     };
 
+    public static int maxValue(int value){
+        int currency[] = {1,2,5,10,20,50,100,500,2000};
+        int maxLength = 0;
+        for(int i = currency.length-1; i>=0;i--){
+            if (value == 0) {
+                return maxLength;
+            }
+            while(currency[i]<=value){
+                maxLength ++;
+                value -= currency[i];
+                System.err.println(currency[i]);
+            }
+        }
+        return maxLength;
+    }
+
     public static void main(String[] args) {
         int start[] = { 1, 3, 4, 3, 11 };
         int end[] = { 4, 4, 10, 11, 15 };
@@ -42,5 +58,6 @@ public class Classroom {
             }
         }
         System.out.println("final value = "+ finalvalue);
+        System.out.println(maxValue(590));
     }
 }
