@@ -95,19 +95,50 @@ public class index {
 
     }
 
-    public static void main(String[] args) {
-        // int node[] = {1,2,4,-1,-1,5,-1,-1,3,-1,6,-1,-1};
-        // BinaryTree tree = new BinaryTree();
-        // Node root = tree.buildTree(node);
-        // System.err.println("");
-        // System.out.println(root.data);
-        // tree.postOrder(root);
+    public static boolean isPrime(int a){
+        if(a<2){
+            return false;
+        }
+        for(int i=2; i<=a/2; i++){
+            if(a%i==0){
+                return false;
+            }
+        }
+        return true;
+    }
 
-        // int h1 = 2;
-        // int h2 = 4;
-        // int h3 = 6;
-        // int h4 = 7;
-        // common(h1, h2, h3, h4);
+    public static int sumOFmtonprime(int m , int n){
+        int sum =0;
+        int count = 0;
+        int i = 0;
+        while(count<=m+n){
+            if(isPrime(i)){
+                count++;
+                System.out.println("step 1");
+                if(count>=m && count<=m+n){
+                    sum += i;
+                    System.out.println("step 2, c++");
+                }
+            }
+            i++;
+            System.out.println("i++");
+        }
+        return sum;
+    }
+
+    public static void main(String[] args) {
+        int node[] = {1,2,4,-1,-1,5,-1,-1,3,-1,6,-1,-1};
+        BinaryTree tree = new BinaryTree();
+        Node root = tree.buildTree(node);
+        System.err.println("");
+        System.out.println(root.data);
+        tree.postOrder(root);
+
+        int h1 = 2;
+        int h2 = 4;
+        int h3 = 6;
+        int h4 = 7;
+        common(h1, h2, h3, h4);
 
         int a[][] = { { 1, 2, 3, 4 }, { 5, 6, 7, 8 }, { 9, 10, 11, 12 }, { 13, 14, 15, 16 } };
         for (int i = 0; i < a.length; i++) {
@@ -124,6 +155,14 @@ public class index {
                 System.out.println(" ");
             }
 
+        }
+
+        System.out.println("hiiii");
+        System.out.println("sum :"+ sumOFmtonprime(2, 2));
+        String a = "I love my India";
+        String b[] = a.split(" ");
+        for(int i = 0; i<b.length;i++){
+            System.err.println(b[i]);
         }
     }
 }
