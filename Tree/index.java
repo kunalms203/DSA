@@ -107,6 +107,27 @@ public class index {
         return true;
     }
 
+    public static int height(Node root){
+        if(root == null){
+            return 0;
+        }
+        return (Math.max(height(root.left), height(root.right)))+1;
+    }
+
+    public static int diameter(Node root){
+        if(root == null){
+            return 0;
+        }
+
+        int leftd = diameter(root.left);
+        int lh = height(root.left);
+        int rightd = diameter(root.right);
+        int rh = height(root.right);
+
+        int selfd = lh + rh +1;
+        return Math.max(selfd, Math.max(leftd,rightd));
+    }
+
     public static int sumOFmtonprime(int m , int n){
         int sum =0;
         int count = 0;
@@ -130,39 +151,41 @@ public class index {
         int node[] = {1,2,4,-1,-1,5,-1,-1,3,-1,6,-1,-1};
         BinaryTree tree = new BinaryTree();
         Node root = tree.buildTree(node);
-        System.err.println("");
-        System.out.println(root.data);
-        tree.postOrder(root);
+        // System.out.println("");
+        // System.out.println(root.data);
+        // tree.postOrder(root);
+        System.out.println(diameter(root));
 
-        int h1 = 2;
-        int h2 = 4;
-        int h3 = 6;
-        int h4 = 7;
-        common(h1, h2, h3, h4);
 
-        int a[][] = { { 1, 2, 3, 4 }, { 5, 6, 7, 8 }, { 9, 10, 11, 12 }, { 13, 14, 15, 16 } };
-        for (int i = 0; i < a.length; i++) {
-            int arr[] = a[i];
-            if (i % 2 == 0) {
-                for (int j = 0; j < arr.length; j++) {
-                    System.out.print(a[i][j] + " ");
-                }
-                System.out.println(" ");
-            } else {
-                for (int j = arr.length - 1; j >= 0; j--) {
-                    System.out.print(a[i][j] + " ");
-                }
-                System.out.println(" ");
-            }
+        // int h1 = 2;
+        // int h2 = 4;
+        // int h3 = 6;
+        // int h4 = 7;
+        // common(h1, h2, h3, h4);
 
-        }
+        // int a[][] = { { 1, 2, 3, 4 }, { 5, 6, 7, 8 }, { 9, 10, 11, 12 }, { 13, 14, 15, 16 } };
+        // for (int i = 0; i < a.length; i++) {
+        //     int arr[] = a[i];
+        //     if (i % 2 == 0) {
+        //         for (int j = 0; j < arr.length; j++) {
+        //             System.out.print(a[i][j] + " ");
+        //         }
+        //         System.out.println(" ");
+        //     } else {
+        //         for (int j = arr.length - 1; j >= 0; j--) {
+        //             System.out.print(a[i][j] + " ");
+        //         }
+        //         System.out.println(" ");
+        //     }
 
-        System.out.println("hiiii");
-        System.out.println("sum :"+ sumOFmtonprime(2, 2));
-        String a = "I love my India";
-        String b[] = a.split(" ");
-        for(int i = 0; i<b.length;i++){
-            System.err.println(b[i]);
-        }
+        // }
+
+        // System.out.println("hiiii");
+        // System.out.println("sum :"+ sumOFmtonprime(2, 2));
+        // String c = "I love my India";
+        // String b[] = c.split(" ");
+        // for(int i = 0; i<b.length;i++){
+        //     System.err.println(b[i]);
+        // }
     }
 }
