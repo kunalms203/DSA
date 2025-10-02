@@ -20,7 +20,7 @@ public class Arraylist {
         //     System.out.println();
         // }
 
-        System.out.println(list);
+        // System.out.println(list);
 
         ArrayList<ArrayList<Integer>> list = new ArrayList<>();
         ArrayList<Integer> list2 = new ArrayList<>(List.of(1, 2, 3));
